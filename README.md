@@ -1,8 +1,12 @@
-# fanghongjian
+# 方鸿渐.skill
 
-`fanghongjian` is a Codex skill for turning an unfamiliar-domain problem into an expert-grade operating method.
+*Inspired by Fang Hongjian's uneasy lecturer arc in* Fortress Besieged *where he survives an unfamiliar academic world by leaning on the posture, sequence, and language of expertise before fully owning the substance, this skill helps outsiders learn how real professionals frame and run the work.*
 
-It does not help users fake expertise. It helps them think, ask, direct, and review work the way the right professional role would.
+**From unfamiliar problems to expert-grade operating logic.**
+
+`方鸿渐.skill` is a Codex skill for people who need to step into work they do not fully own, quickly identify the real professional operator, and start thinking at the level of method instead of surface tactics.
+
+It does not market fake expertise. It gives users something more practical: a disciplined way to reconstruct context, speak in expert-grade operating logic, and direct work without collapsing into amateur guesswork.
 
 ## Why this exists
 
