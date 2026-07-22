@@ -35,10 +35,24 @@ description: Turn an unfamiliar-domain problem into an expert-grade operating me
   - `本质不是 X 本身，而是在 Y 约束下，角色/系统缺少 Z 机制，导致无法稳定达成 D。`
 - 不要只给“怎么补这个洞”的一招一式；要先判断这个洞属于哪一类系统性问题。
 
+### 2A. Climb one level higher before you stop abstracting
+
+- 机制层通常还不够。先继续追问四件事：
+  - 这其实是哪一种系统在失灵：测量系统、协调系统、正当性系统、控制系统、生成系统，还是别的什么系统
+  - 它失去的根能力是什么：可判定性、可协调性、可正当化性、可控性、可适应性、可归属性，还是别的什么能力
+  - 哪两类价值、目标或约束在深层冲突：速度与准确、局部最优与整体一致、效率与正当性、规模化与作者性
+  - 真正稀缺的不是钱或人，而是判断权、证明权、解释权、纠偏权，还是信任本身
+- 使用 [references/philosophical-elevation.md](references/philosophical-elevation.md) 选择更深一层的镜头。
+- 至少输出两句不同层次的判断：
+  - `工作本质句`：说明具体机制哪里失灵
+  - `更深一层句`：说明系统在什么张力下失去了什么根能力
+- 如果你的“本质”里没有出现“系统类型 / 深层张力 / 根能力”中的至少两个，说明你还停在表层。
+
 ### 3. Reconstruct how an actual expert would run the work
 
 - 先判断当前问题更像哪一类专业工作，再调用对应流程，而不是一上来给观点。
 - 使用 [references/methodology-map.md](references/methodology-map.md) 选择最贴近的工作流原型。
+- 然后再从 [references/philosophical-elevation.md](references/philosophical-elevation.md) 里选一条上位方法论，说明这类问题跨场景都该怎么治理，而不是只说这个个案怎么修。
 - 至少补齐这五个专业元素：
   - 诊断路径：内行先看什么，按什么顺序排查
   - 决策标准：什么条件满足才算能推进
@@ -56,6 +70,8 @@ description: Turn an unfamiliar-domain problem into an expert-grade operating me
   - 红旗清单：哪些说法、现象或结果意味着方案不靠谱
 - 优先提供方法论、步骤、门槛和验收句式，不要堆大量术语。
 - 如果用户需要“怎么看”“怎么办”“你打算怎么做”，先给结论，再给专业流程，再给外行版本的可执行动作。
+- 先给“这个问题为什么会反复发生”的上位解释，再给“这次怎么处理”的专业流程。
+- 输出的“锦囊妙计”默认应该是跨场景可迁移的方法论，不应只是一组个案动作。
 
 ### 4A. If the user forbids manual steps, redesign around automation
 
@@ -87,15 +103,19 @@ description: Turn an unfamiliar-domain problem into an expert-grade operating me
 
 1. `一句话结论`
 2. `问题本质`
-3. `专业工作流`
-4. `外行可执行指挥稿`
-5. `关键证据 / 推断边界`
-6. `风险与下一步`
+3. `更深一层`
+4. `上位方法论`
+5. `专业工作流`
+6. `外行可执行指挥稿`
+7. `关键证据 / 推断边界`
+8. `风险与下一步`
 
 写作要求：
 
 - 先说结论，再展开
 - 多用判断句，少用空泛鼓励
+- “问题本质”说机制层，“更深一层”说系统层；两者不要重复
+- “上位方法论”必须能迁移到同类问题，不能退化成当前个案的操作清单
 - 把专业流程翻译成外行也能抓得住的检查点
 - 每次都要标明直接证据和推断的边界
 - 如需引用专业流程模板，直接读取 references，而不是现场即兴编造
@@ -105,6 +125,7 @@ description: Turn an unfamiliar-domain problem into an expert-grade operating me
 
 - [references/problem-abstraction.md](references/problem-abstraction.md)：把表象问题压缩成问题本质的剥离框架
 - [references/methodology-map.md](references/methodology-map.md)：常见问题类型与对应的专业流程原型
+- [references/philosophical-elevation.md](references/philosophical-elevation.md)：把问题从机制层继续上穿到系统能力、深层张力与上位方法论的镜头
 
 ## Validation
 
