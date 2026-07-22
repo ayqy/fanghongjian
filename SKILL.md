@@ -7,7 +7,7 @@ description: Turn an unfamiliar-domain problem into an expert-grade operating me
 
 ## Overview
 
-把陌生领域的问题先还原成真实工作场景，再抽象出问题本质、专业角色和专业流程，最后把它压缩成外行也能执行的判断框架、指挥话术和验收标准。把“方鸿渐”当成一种处境隐喻：人在不熟悉的专业环境里，也要靠更高维的方法论站稳，而不是靠吹嘘、伪造或冒充。哲学只作为内部校准内核，对外结果默认停在“方法论层”，要求简单、能懂、能直接指导动作。
+把陌生领域的问题先还原成真实工作场景，再抽象出问题本质、专业角色和专业流程，最后把它压缩成外行也能执行的判断框架、指挥话术和验收标准。把“方鸿渐”当成一种处境隐喻：人在不熟悉的专业环境里，也要靠更高维的方法论站稳，而不是靠吹嘘、伪造或冒充。哲学只作为内部校准内核，对外结果默认停在“方法论层”，要求简单、能懂、能直接指导动作；而方法论必须先锚定到“在这个问题上谁是专业的、他的职责是什么、他平时怎么推进这类工作”。
 
 ## Standard Workflow
 
@@ -54,9 +54,23 @@ description: Turn an unfamiliar-domain problem into an expert-grade operating me
   - 删除哲学术语后，方法论主线是否仍然成立
   - 如果答案还像一段概念解释而不像一个工作抓法，说明抽象仍然过高
 
+### 2B. Anchor to the professional role before you give methodology
+
+- 在给“方法论主线”之前，先回答三件事：
+  - 在这个问题上，谁才是真正的专业角色
+  - 这个角色的核心职责是什么，他到底在守住什么结果
+  - 这个角色平时遇到同类问题，第一反应会先看什么、先定什么、先排什么顺序
+- 使用 [references/professional-role-anchor.md](references/professional-role-anchor.md) 选主专业角色。
+- 如果同一问题跨多个角色，默认只选一个“主专业角色”作为方法论来源；其他角色只作为约束条件、协作方或依赖项。
+- 方法论必须从这个角色的职能里长出来，而不是从表面症状直接拼动作清单。
+- 对外输出时，要让用户能听懂这句话：
+  - `如果把自己当成这个专业角色，这类问题一般不是先做 A，而是先把 B 定住。`
+- 对 `prompt` 优化、模型输出质量、提示词调试类问题，默认优先检查主专业角色是不是 `LLM 应用工程师 / Prompt 工程师 / Evaluation 工程师`，而不是泛化成“写作者”或“编辑”。
+
 ### 3. Reconstruct how an actual expert would run the work
 
-- 先判断当前问题更像哪一类专业工作，再调用对应流程，而不是一上来给观点。
+- 先判断当前问题的主专业角色是谁，以及他在执行哪一类专业工作，再调用对应流程，而不是一上来给观点。
+- 先从角色职能提炼方法论，再从方法论落到流程步骤。
 - 使用 [references/methodology-map.md](references/methodology-map.md) 选择最贴近的工作流原型。
 - 再借助 [references/philosophical-elevation.md](references/philosophical-elevation.md) 做内部校准，但对外只输出一条朴素的“方法论主线”，说明这类问题跨场景都该先立什么、再推进什么、最后如何验收。
 - 至少补齐这五个专业元素：
@@ -75,6 +89,7 @@ description: Turn an unfamiliar-domain problem into an expert-grade operating me
   - 指挥话术：用户可以如何向内行下达任务、追问依据、要求验收
   - 红旗清单：哪些说法、现象或结果意味着方案不靠谱
 - 优先提供方法论、步骤、门槛和验收句式，不要堆大量术语。
+- 先把“专业角色是谁、他平时怎么干”说清，再给方法论和工作流；否则用户拿不到能唬住内行的抓手。
 - 如果用户需要“怎么看”“怎么办”“你打算怎么做”，先给结论，再给专业流程，再给外行版本的可执行动作。
 - 先给“这类问题真正应该先抓什么”的方法论解释，再给“这次怎么处理”的专业流程。
 - 输出的“锦囊妙计”默认应该是跨场景可迁移的方法论，不应只是一组个案动作。
@@ -110,21 +125,24 @@ description: Turn an unfamiliar-domain problem into an expert-grade operating me
 默认按下面结构输出：
 
 1. `一句话结论`
-2. `问题本质`
-3. `方法论主线`
-4. `专业工作流`
-5. `外行可执行指挥稿`
-6. `关键证据 / 推断边界`
-7. `风险与下一步`
+2. `专业角色锚点`
+3. `问题本质`
+4. `方法论主线`
+5. `专业工作流`
+6. `外行可执行指挥稿`
+7. `关键证据 / 推断边界`
+8. `风险与下一步`
 
 写作要求：
 
 - 先说结论，再展开
 - 多用判断句，少用空泛鼓励
+- “专业角色锚点”默认只写 1 到 2 句，讲清“谁是专业的”和“他的职责是什么”
 - “问题本质”要直接服务于后面的工作流设计：既不能只复述症状，也不要漂到一串哲学术语
 - “问题本质”默认只写 1 到 2 句，讲清“真正卡在哪”和“为什么老在这里反复”
-- “方法论主线”必须回答“这类问题先定什么、再推进什么、最后如何验收”
+- “方法论主线”必须回答“如果按这个专业角色的职能来做，这类问题先定什么、再推进什么、最后如何验收”
 - “方法论主线”最多 3 条，每条都用白话写成可以直接转成动作顺序的原则句
+- 如果没有先锚定主专业角色，就不要开始写“方法论主线”
 - 如果内部用了更深一层的镜头，必须先把它翻译成白话方法论，再决定是否写给用户
 - 默认不要直接使用 `可判定性 / 可协调性 / 可正当化性 / 可控性 / 可归属性 / 可适应性` 这类词；如确需使用，必须紧跟白话解释
 - 把专业流程翻译成外行也能抓得住的检查点
@@ -138,6 +156,7 @@ description: Turn an unfamiliar-domain problem into an expert-grade operating me
 ## Resources
 
 - [references/problem-abstraction.md](references/problem-abstraction.md)：把表象问题压缩成问题本质的剥离框架
+- [references/professional-role-anchor.md](references/professional-role-anchor.md)：先判断“谁是专业的”，再从专业角色职能中提炼方法论
 - [references/methodology-map.md](references/methodology-map.md)：常见问题类型与对应的专业流程原型
 - [references/philosophical-elevation.md](references/philosophical-elevation.md)：把问题从机制层继续上穿到系统能力、深层张力与上位方法论的镜头
 
