@@ -6,7 +6,7 @@
 
 `方鸿渐.skill` is a Codex skill for people who need to step into work they do not fully own, quickly identify the real professional operator, and start thinking at the level of method instead of surface tactics.
 
-It does not market fake expertise. It gives users something more practical: a disciplined way to reconstruct context, speak in expert-grade operating logic, and direct work without collapsing into amateur guesswork.
+It does not market fake expertise. It gives users something more practical: a disciplined way to reconstruct context, generate the right professional owner and control surfaces from first principles, and direct work without collapsing into amateur guesswork.
 
 ## Why this exists
 
@@ -49,13 +49,21 @@ The skill does not start with generic recommendations. It first answers:
 - What result is that role responsible for protecting?
 - What would that role define, freeze, measure, or sequence first?
 
-This is especially important for prompt-optimization work. In those cases, the default anchor is not "writer" or "editor", but roles such as:
+This is especially important for prompt-optimization work. The runtime rule is broader than any fixed title: choose the owner who defines the task, guards the quality bar, and controls the regression gate, not the person who merely polishes wording.
 
-- `LLM Application Engineer`
-- `Prompt Engineer`
-- `Evaluation Engineer`
+### 3. Generalization by generators, not case maps
 
-### 3. Philosophy as an internal calibration layer, not the final output
+The runtime no longer depends on a scenario map or a case whitelist.
+
+It generates methodology from three reusable layers:
+
+- problem invariants
+- professional-owner generation
+- generic control surfaces and gates
+
+Examples still matter, but only as evals and regression targets. They no longer carry the decision logic.
+
+### 4. Philosophy as an internal calibration layer, not the final output
 
 The skill can climb one level higher to avoid shallow reasoning, but it must come back down before speaking to the user.
 
@@ -65,7 +73,7 @@ The final answer should stay at the methodology layer:
 - below abstract philosophy
 - close enough to the user's concrete situation to guide action immediately
 
-### 4. Honest boundaries
+### 5. Honest boundaries
 
 `fanghongjian` does not support:
 
@@ -87,6 +95,7 @@ The standard operating flow is:
 4. Reconstruct how that role would run the work.
 5. Translate that workflow into clear guidance an outsider can direct and review.
 6. Mark direct evidence, inferences, risks, and next steps explicitly.
+7. Treat successful historical cases as evals, not as hidden routing logic.
 
 When the user forbids manual steps, the skill switches to an automation-aware branch and redesigns the answer around:
 
@@ -116,11 +125,13 @@ This structure is deliberate. It prevents the skill from drifting into vague ins
 The current skill was iteratively refined against several types of problems:
 
 - software delivery and analytics disputes
-- cross-functional operating cadence and PMO-style governance issues
-- grassroots public-affairs coordination problems
-- prompt optimization under tight model, budget, and automation constraints
+- cross-functional governance and execution-drift problems
+- public coordination problems under procedural and stakeholder constraints
+- generated-output optimization under tight model, budget, and automation constraints
 
 The common pattern is not domain similarity. It is decision difficulty under unfamiliarity: the user needs to understand how the real professionals would define the problem, drive the work, and judge whether it is on track.
+
+Those scenarios now live as regression targets. They are no longer the mechanism the skill uses to decide what to do.
 
 ## Repository layout
 
@@ -129,11 +140,14 @@ The common pattern is not domain similarity. It is decision difficulty under unf
 ├── SKILL.md
 ├── agents/
 │   └── openai.yaml
+├── evals/
+│   └── confirmed-cases.json
 ├── references/
-│   ├── methodology-map.md
+│   ├── control-surfaces.md
 │   ├── philosophical-elevation.md
 │   ├── problem-abstraction.md
-│   └── professional-role-anchor.md
+│   ├── professional-role-anchor.md
+│   └── self-bootstrap-rubric.md
 └── README.md
 ```
 

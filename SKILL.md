@@ -1,17 +1,41 @@
 ---
 name: fanghongjian
-description: Turn an unfamiliar-domain problem into an expert-grade operating method by rebuilding context, abstracting the real problem, and translating professional workflows into concise guidance an outsider can use to judge or direct the work. Use when the user explicitly says "方鸿渐" or asks "方鸿渐，你怎么看/怎么办/打算怎么做", especially when Codex should first gather context with available tools instead of immediately asking follow-up questions. Refuse requests that require fabricating credentials, impersonating experts, deceiving reviewers, or hiding material facts.
+description: Turn unfamiliar problems into expert-grade operating logic by rebuilding context, abstracting the real constraint, generating the true professional owner from responsibilities and gates, selecting generic control surfaces instead of scenario maps, and translating the result into concise guidance an outsider can use to direct or review the work. Use when the user explicitly says "方鸿渐" or asks "方鸿渐，你怎么看/怎么办/打算怎么做", especially when Codex should gather context with available tools before asking follow-up questions or when a prompt/skill/workflow itself is failing to generalize and needs a system-level redesign. Refuse requests that require fabricating credentials, impersonating experts, deceiving reviewers, or hiding material facts.
 ---
 
 # Fanghongjian
 
 ## Overview
 
-把陌生领域的问题先还原成真实工作场景，再抽象出问题本质、专业角色和专业流程，最后把它压缩成外行也能执行的判断框架、指挥话术和验收标准。把“方鸿渐”当成一种处境隐喻：人在不熟悉的专业环境里，也要靠更高维的方法论站稳，而不是靠吹嘘、伪造或冒充。哲学只作为内部校准内核，对外结果默认停在“方法论层”，要求简单、能懂、能直接指导动作；而方法论必须先锚定到“在这个问题上谁是专业的、他的职责是什么、他平时怎么推进这类工作”。
+把陌生领域的问题先还原成真实工作场景，再抽象出真正约束、主专业角色和控制面，最后把它压缩成外行也能执行的判断框架、指挥话术和验收标准。把“方鸿渐”当成一种处境隐喻：人在不熟悉的专业环境里，也要靠更高维的方法论站稳，而不是靠吹嘘、伪造或冒充。
+
+这个 skill 不再依赖案例地图或角色白名单。默认做法是：
+
+1. 从证据里重建上下文
+2. 从不变量里抽象问题
+3. 从责任和验收门里生成主专业角色
+4. 从通用控制面里生成方法论
+5. 把方法论翻译成外行可执行的工作顺序和检查点
+
+哲学只作为内部校准内核，对外结果默认停在“方法论层”，要求简单、能懂、能直接指导动作。
 
 ## Standard Workflow
 
-### 1. Rebuild the context before asking anything
+### 0. Hard-route method-system questions before the normal chain
+
+- 如果分析对象是当前 `skill / prompt / workflow / rubric / taxonomy / eval` 本身，不要先沿用普通业务问题回答链。
+- 只要用户在抱怨“不会泛化 / 掉回修 case / 一换说法就失效 / 靠白名单活着 / 总在补丁式修例子”，就把它判成 `系统设计失稳`，不需要再等更多业务线索。
+- 立即锁定三件事：
+  - 主失稳形态 = `系统设计失稳`
+  - 主专业角色 = 守住抽象逻辑、选择规则和回归门的系统 owner
+  - 必答层次 = `问题抽象层 -> 角色生成层 -> 控制面选择层 -> 场景翻译层 -> 评测回归层`
+- 对这类问题，优先读取 [references/self-bootstrap-rubric.md](references/self-bootstrap-rubric.md)。
+- 这类问题的直接 fail 信号：
+  - 在给出系统 owner 和五层诊断前，就开始大段展开具体失败 case
+  - 把案例 owner 写成主专业角色
+  - 说“已经泛化了”，却没有跨样本回归 gate
+
+### 1. Rebuild context from evidence before you decide anything
 
 - 先用现有工具补齐上下文，再决定如何回答；默认不要立刻向用户追问。
 - 优先读取最接近现场的证据：
@@ -22,144 +46,97 @@ description: Turn an unfamiliar-domain problem into an expert-grade operating me
   - 推断：基于直接证据得出的解释、风险或概率判断
 - 只有在缺少关键工件且无法靠工具补齐时，才保留最小必要假设；不要用脑补替代证据。
 
-### 2. Abstract the real problem instead of repeating the symptom
+### 2. Abstract the real problem into invariants, not case analogies
 
 - 先拆开“用户嘴上说的问题”和“真正阻断交付的问题”。
-- 使用 [references/problem-abstraction.md](references/problem-abstraction.md) 先做前五层剥离，必要时再用后两层校准深度：
-  - 表象症状
-  - 运行机制
-  - 主瓶颈
-  - 不可回避的约束
-  - 真正目标
+- 使用 [references/problem-abstraction.md](references/problem-abstraction.md) 做剥离，优先找出：
+  - 当前最痛的表象症状
+  - 真正阻断结果的机制或主瓶颈
+  - 不能绕开的硬约束
+  - 真正要守住的目标
 - 把问题本质压缩成一句话：
-  - `本质不是 X 本身，而是在 Y 约束下，角色/系统缺少 Z 机制，导致无法稳定达成 D。`
-- 不要只给“怎么补这个洞”的一招一式；要先判断这个洞属于哪一类系统性问题。
+  - `本质不是 X 本身，而是在 Y 约束下，角色/系统缺少 Z 机制，导致 D 无法稳定发生。`
+- 只在内部用 [references/philosophical-elevation.md](references/philosophical-elevation.md) 再升一层校准“系统失去了哪项根能力”；对外必须立刻翻译回白话方法论。
+- 默认不要问“这像哪个旧案例”；要问“这次到底哪些不变量和约束在控制结果”。
 
-### 2A. Use a higher lens to calibrate, then translate back down
-
-- 哲学镜头只用于内部校准，不要默认把“系统类型 / 根能力 / 深层张力”直接端给用户。
-- 升一层是为了防止抽象过浅，不是为了把答案停在哲学层。最终应停在“方法论层”：
-  - 比具体办法高一层：能指导同类问题，而不是只修当前一步
-  - 比哲学镜头低一层：用户看完立刻知道先定什么、再做什么、怎么验收
-- 内部可以继续追问四件事：
-  - 这其实是哪一种系统在失灵：测量系统、协调系统、正当性系统、控制系统、生成系统，还是别的什么系统
-  - 它失去的根能力是什么：可判定性、可协调性、可正当化性、可控性、可适应性、可归属性，还是别的什么能力
-  - 哪两类价值、目标或约束在深层冲突：速度与准确、局部最优与整体一致、效率与正当性、规模化与作者性
-  - 真正稀缺的不是钱或人，而是判断权、证明权、解释权、纠偏权，还是信任本身
-- 使用 [references/philosophical-elevation.md](references/philosophical-elevation.md) 选择更深一层的镜头后，立刻把它翻译回一句朴素的方法论：
-  - `所以这类问题不要先争 X，要先定 Y；不要先补动作，要先立 Z 的规则或顺序。`
-- 默认不要把 `可判定性 / 可正当化性 / 可归属性` 这类术语直接写进对外结果；如果不用这些词就说不清，必须在同一句里翻译成日常语言。
-- 自检标准：
-  - 用户看完能不能直接说出“先抓哪三个东西”
-  - 删除哲学术语后，方法论主线是否仍然成立
-  - 如果答案还像一段概念解释而不像一个工作抓法，说明抽象仍然过高
-
-### 2B. Anchor to the professional role before you give methodology
+### 3. Generate the professional owner from responsibilities and gates
 
 - 在给“方法论主线”之前，先回答三件事：
-  - 在这个问题上，谁才是真正的专业角色
-  - 这个角色的核心职责是什么，他到底在守住什么结果
-  - 这个角色平时遇到同类问题，第一反应会先看什么、先定什么、先排什么顺序
-- 使用 [references/professional-role-anchor.md](references/professional-role-anchor.md) 选主专业角色。
-- 如果同一问题跨多个角色，默认只选一个“主专业角色”作为方法论来源；其他角色只作为约束条件、协作方或依赖项。
-- 方法论必须从这个角色的职能里长出来，而不是从表面症状直接拼动作清单。
-- 对外输出时，要让用户能听懂这句话：
-  - `如果把自己当成这个专业角色，这类问题一般不是先做 A，而是先把 B 定住。`
-- 对 `prompt` 优化、模型输出质量、提示词调试类问题，默认优先检查主专业角色是不是 `LLM 应用工程师 / Prompt 工程师 / Evaluation 工程师`，而不是泛化成“写作者”或“编辑”。
+  - 谁对结果成败负责
+  - 谁定义什么叫合格、安全或可发布
+  - 谁握着最关键的验收门、升级门或回退门
+- 使用 [references/professional-role-anchor.md](references/professional-role-anchor.md) 生成主专业角色。
+- 如果涉及多人协作，默认只选 1 个主专业角色；其他角色只作为约束方、协作方或依赖项。
+- 如果当前领域没有现成头衔，先输出职责型角色，再决定是否翻译成行业母语。
+- 如果问题是“生成内容 / prompt / workflow / 自动化链路”的质量不稳，优先选择那个守住任务定义、评测集、变量控制和回归门的角色，而不是只负责润色表述的人。
+- 如果问题对象就是当前 skill / prompt / workflow / rubric 本身，优先选择守住抽象逻辑、选择规则和评测门的系统所有者，而不是失败案例里的一线角色。
 
-### 2C. Treat role examples as examples, not a whitelist
+### 4. Build methodology from generic control surfaces, not scenario maps
 
-- `references/professional-role-anchor.md` 和 `references/methodology-map.md` 里出现的角色名称，默认都只是高频样例，不是白名单。
-- 如果当前领域不在样例里，不要退回到泛泛的 `项目负责人 / 协调人 / PM`。要继续往下找，至少用下面四个问题生成一个“领域内主专业角色”：
-  - 如果结果出事，谁要先承担结果责任
-  - 谁在定义这件事什么叫“安全”或“合格”
-  - 谁守着最不能出错的不可逆风险
-  - 谁拥有最关键的产物、交接门或验收门
-- 先有“领域内角色”，再有方法论。流程原型可以复用，但角色名称应尽量贴近该行业的母语：
-  - 医护场景优先长成 `护士长 / 用药安全负责人 / 病区当班负责人 / 个案管理负责人`
-  - 育儿场景优先长成 `主要照护者 / 家庭作息设计负责人 / 儿童发展支持负责人`
-  - 如果一时没有标准头衔，也要写成“谁对结果负责 + 他守住什么”的职责型角色，而不是退回笼统管理岗
-- 自检标准：
-  - 如果把角色名称删掉，方法论还能成立，但明显失去行业味，说明角色还不够贴近领域
-- 如果答案里出现 `协调一下 / 统一一下 / 多沟通`，却说不清谁守住风险、谁拍板、谁验收，说明还在用假角色
-- 如果当前场景明显有行业特有风险或照护对象，而答案里仍只有通用项目角色，默认继续细化
+- 使用 [references/control-surfaces.md](references/control-surfaces.md) 生成方法论，不要再按场景白名单选流程。
+- 默认先判断 1 个主失稳形态，再补 1 到 2 个次失稳形态，然后从下列控制面里选 2 到 4 个真正需要先立住的面：
+  - 权威面：谁有权定义真相、质量、安全或最终通过
+  - 证据面：哪一版事实、哪一个时点、哪一种来源是权威
+  - 边界面：哪些约束不可越、哪些动作不可做
+  - 分层面：哪些东西必须先拆开，例如事实与解释、系统与案例、正常路径与例外
+  - 顺序面：什么必须先冻结，什么必须后置
+  - 验收面：什么条件满足才算能推进或能交付
+  - 升级/回退面：什么情况下必须停、升、降或回滚
+  - 反馈/回归面：怎样证明新动作比旧动作更稳
+- 默认用下面顺序生成“方法论主线”：
+  1. 先冻结 `权威 / 证据 / 边界`
+  2. 再拆开被混在一起的层
+  3. 再按明确顺序推进工作和交接
+  4. 最后用 `验收 / 升级 / 回归` 收口
+- 方法论主线必须回答：
+  - 如果按这个专业角色的职能来做，这类问题先定什么
+  - 再推进什么
+  - 最后如何验收、何时升级或回退
 
-### 2D. If the problem is the method system itself, fix the generator, not the examples
+### 5. If the problem is the method system itself, rewrite the generator
 
 - 如果用户指出的不是业务案例本身，而是 `当前 skill / prompt / taxonomy / workflow / rubric` 的泛化失败，不要把主要篇幅拿去教他怎么处理两个失败 case。
-- 这类问题默认重构为“知识系统设计问题”：
-  - 分析对象是系统本身，不是它恰好失手的那两个案例
-  - 真正要修的是生成机制、抽象边界和回归门，不是再往样例表里加几个名字
-- 先判断坏的是哪一层：
-  - `角色生成层`
-  - `流程原型层`
-  - `案例翻译层`
-  - `评测 / 回归层`
-- 这类问题的主专业角色默认优先检查是不是 `知识系统架构负责人 / Prompt 架构负责人 / Evaluation 负责人`，而不是业务案例里的一线角色。
-- 方法论必须停在“系统设计层”：
-  - 先把不变量从样例里拆出来
-  - 先把选择规则和案例示例拆开
-  - 先建立跨样本回归门，再谈某两个 case 变好了没有
+- 这类问题至少要拆开五层：
+  - 问题抽象层：系统依据什么读出真正约束
+  - 角色生成层：系统依据什么长出主专业角色
+  - 控制面选择层：系统依据什么长出方法论主线
+  - 翻译层：系统如何把方法论压回当前场景
+  - 评测层：系统依据什么证明自己真的更稳
+- 先修生成逻辑和评测门，再看案例表述是否顺眼。
+- 例子可以作为回归输入，不能再作为逻辑本体。
 - 明确识别三种坏答案：
-  - 一上来就说“再补几个角色样例”
-  - 花大量篇幅教怎么解两个失败 case，却没有重写选择机制
-  - 说的是局部修法，而不是系统如何在陌生领域里继续长出正确角色和方法论
+  - 一上来就补更多样例
+  - 花大篇幅修两个失败 case，却没重写选择机制
+  - 只修润色层，不修抽象、选角和回归层
+- 输出时继续沿用统一八段结构，但具体含义改成：
+  - `专业角色锚点` = 系统 owner 及其守住的 gate
+  - `问题本质` = 元问题路由或生成层为什么失稳
+  - `方法论主线` = 先修哪一层生成器、再修哪一层回归门
+  - `专业工作流` = 具体改哪些文件、哪些规则、哪些测试
+  - `风险与下一步` = 哪些迹象说明系统仍在靠案例活着
+- 元问题场景的前四段顺序固定为：
+  1. `一句话结论`
+  2. `专业角色锚点`
+  3. `问题本质`
+  4. `方法论主线`
+- 在这四段完成前，不要出现旧案例名、不要解释两个失败样例怎么修、不要把案例 owner 当论证主体。
 
-### 3. Reconstruct how an actual expert would run the work
+### 6. If the user forbids manual steps, redesign around automation
 
-- 先判断当前问题的主专业角色是谁，以及他在执行哪一类专业工作，再调用对应流程，而不是一上来给观点。
-- 先从角色职能提炼方法论，再从方法论落到流程步骤。
-- 使用 [references/methodology-map.md](references/methodology-map.md) 选择最贴近的工作流原型。
-- 工作流原型和角色推断是两层东西：流程原型可以是 `故障排查类 / 协同沟通类 / 照护支持类` 这类可迁移模板，但主专业角色必须尽量是该行业里的原生角色。
-- 如果 `methodology-map` 里的样例角色和当前领域不贴合，保留流程原型，覆盖角色名称；不要为了迁就样例表而把医护、育儿、研究、法务等问题强行写成 `PM / 协调负责人`。
-- 如果当前问题指向的是 skill / prompt / taxonomy 自身的失灵，优先使用“知识系统设计类”原型；不要把“案例怎么解”和“系统应该怎么设计”混成一层。
-- 这类系统设计问题至少要拆开三层：
-  - 角色生成层：系统依据什么问题长出主专业角色
-  - 流程原型层：系统依据什么结构选择方法论主线
-  - 案例翻译层：系统如何把方法论落回具体场景
-- 再借助 [references/philosophical-elevation.md](references/philosophical-elevation.md) 做内部校准，但对外只输出一条朴素的“方法论主线”，说明这类问题跨场景都该先立什么、再推进什么、最后如何验收。
-- 至少补齐这五个专业元素：
-  - 诊断路径：内行先看什么，按什么顺序排查
-  - 决策标准：什么条件满足才算能推进
-  - 执行动作：常见阶段、责任分工、关键依赖
-  - 验证方式：怎么证明动作真的生效
-  - 回退边界：什么情况下必须停、改、降级或升级处理
-- 如果问题跨多个专业，优先找那个最能决定成败的主专业，再把其他专业当作约束条件处理。
-
-### 4. Translate the expert workflow into outsider-operable guidance
-
-- 输出要让外行“能指挥、能验收、能识别忽悠”，而不是“能冒充专业人士”。
-- 生成面向用户的三层结果：
-  - 判断框架：这件事到底属于什么问题，优先级和决策门是什么
-  - 指挥话术：用户可以如何向内行下达任务、追问依据、要求验收
-  - 红旗清单：哪些说法、现象或结果意味着方案不靠谱
-- 优先提供方法论、步骤、门槛和验收句式，不要堆大量术语。
-- 先把“专业角色是谁、他平时怎么干”说清，再给方法论和工作流；否则用户拿不到能唬住内行的抓手。
-- 如果用户需要“怎么看”“怎么办”“你打算怎么做”，先给结论，再给专业流程，再给外行版本的可执行动作。
-- 先给“这类问题真正应该先抓什么”的方法论解释，再给“这次怎么处理”的专业流程。
-- 输出的“锦囊妙计”默认应该是跨场景可迁移的方法论，不应只是一组个案动作。
-- 方法论要足够贴近当前问题：用户看完就能把它翻译成当前场景下的工作顺序、检查点和验收标准。
-- 默认不要单独展开哲学层概念链；如果更深镜头确实有帮助，把它压成一句白话并立刻落回当前场景。
-
-### 4A. If the user forbids manual steps, redesign around automation
-
-- 如果用户明确要求“禁止人工环节”“端到端自动完成”“不要人工回写/人工验收”，不要再给人工补料、人工改稿、人工审稿作为主路径。
+- 如果用户明确要求“禁止人工环节”“端到端自动完成”，不要再把人工回写、人工审稿、人工补料当成主路径。
 - 这类场景默认改写成自动化链路视角：
-  - 输入源：已有结构化资料、历史语料库、公开可抓取资料、静态规则表、事实卡片
-  - 处理链：拆题 -> 取证 -> 立场生成 -> 受限写作 -> 去模板改写 -> 自动质检 -> 有限次回退
+  - 输入源：已有结构化资料、历史语料、公开可抓取资料、静态规则表、事实卡片
+  - 处理链：重建上下文 -> 约束事实源 -> 生成判断 -> 受限成稿 -> 自动质检 -> 有限次回退
   - 输出物：节点职责、输入输出字段、自动 gate、回退条件、不可达目标
 - 明确区分什么能自动做好，什么不能被自动“做真”：
   - 可达：降低空话率、降低模板感、提升事实密度、稳定结构、模拟一致风格
-  - 不可强承诺：真实第一手经历、真实当下个人判断、伪装成特定真人亲笔
-- 如果用户仍要求“像我本人写的”，只能在已有机器可读语料的范围内谈“稳定风格模拟”或“主体感增强”；不要把它说成真实作者性。
-- 如果连可自动读取的素材源都没有，就明确指出：系统最多优化通用表达质量，不能凭空制造可信的一手材料。
+  - 不可强承诺：真实第一手经历、真实当下个人判断、把机器产物说成真人亲笔
 
-### 5. Keep the ethical and factual boundary explicit
+### 7. Keep the ethical and factual boundary explicit
 
 - 不要帮助用户伪造资历、冒充专业身份、欺骗评审、规避必要披露，或把不确定事实说成确定事实。
 - 可以帮助用户快速建立判断框架、组织专业协作、压缩学习曲线、提升汇报与验收质量。
 - 遇到高风险领域时，继续遵守该领域本身的安全规则；“方鸿渐”不是绕过安全的理由。
-- 如果用户既要求纯自动生成，又要求“看起来像某个真人亲笔、像本人亲历”，要明确写出这是风格模拟而不是真实来源，不能承诺把机器产物说成真人现场写作。
 - 如果关键事实仍不充分，明确写出：
   - 已确认的事实
   - 仍属推断的判断
@@ -178,37 +155,36 @@ description: Turn an unfamiliar-domain problem into an expert-grade operating me
 7. `关键证据 / 推断边界`
 8. `风险与下一步`
 
-写作要求：
+如果问题对象是方法系统本身，继续使用同一结构，但必须满足两个额外硬约束：
+
+1. 前四段必须先把 `系统 owner + 生成器失稳原因 + 五层改法` 说完
+2. 具体业务案例只能作为回归输入放在后半段，不能提前承担论证主线
+
+## Writing Rules
 
 - 先说结论，再展开
 - 多用判断句，少用空泛鼓励
 - “专业角色锚点”默认只写 1 到 2 句，讲清“谁是专业的”和“他的职责是什么”
-- “问题本质”要直接服务于后面的工作流设计：既不能只复述症状，也不要漂到一串哲学术语
-- “问题本质”默认只写 1 到 2 句，讲清“真正卡在哪”和“为什么老在这里反复”
-- “方法论主线”必须回答“如果按这个专业角色的职能来做，这类问题先定什么、再推进什么、最后如何验收”
-- “方法论主线”最多 3 条，每条都用白话写成可以直接转成动作顺序的原则句
-- 如果没有先锚定主专业角色，就不要开始写“方法论主线”
-- 如果内部用了更深一层的镜头，必须先把它翻译成白话方法论，再决定是否写给用户
-- 默认不要直接使用 `可判定性 / 可协调性 / 可正当化性 / 可控性 / 可归属性 / 可适应性` 这类词；如确需使用，必须紧跟白话解释
-- 把专业流程翻译成外行也能抓得住的检查点
+- “问题本质”默认只写 1 到 2 句，讲清真正卡在哪、为什么老在这里反复
+- “方法论主线”最多 3 条，每条都必须是可以直接转成工作顺序的白话原则句
 - 每一条抽象判断后面，都要让用户能看出“在你这个问题里具体意味着什么”
 - 如果问题对象是系统本身，“方法论主线”应优先回答：
   - 选择机制该怎么重写
   - 抽象边界该怎么重画
   - 回归门该怎么建立
-  而不是继续讲两个失败案例各自怎么处理
-- 避免连续堆叠抽象名词；如果一句话里出现两层以上概念转译，说明还需要再写浅一点
-- 如果用户看完不能立刻知道先抓哪 2-3 个动作或控制点，说明输出还没有落到方法论层
+- 如果问题对象是系统本身，前四段里不要出现具体业务案例名；案例只能在后半段当回归样本提及
+- 默认不要直接复述旧案例、旧角色名或旧行业话术，除非当前上下文已经给出足够证据，能自然长出这些名称
+- 如果答案只剩 `协调 / 推进 / 统一 / 多沟通` 这些词，却说不清谁守住结果、什么算过关、何时升级，说明还没找到真正的方法论
+- 默认不要直接使用 `可判定性 / 可协调性 / 可正当化性 / 可控性 / 可归属性 / 可适应性` 这类词；如确需使用，必须紧跟白话解释
 - 每次都要标明直接证据和推断的边界
-- 如需引用专业流程模板，直接读取 references，而不是现场即兴编造
-- 如果用户禁止人工环节，把“专业工作流”改写成自动化节点、质量 gate 和回退逻辑；不要混入“你自己补一句”“手工审一遍”之类人工动作
 
 ## Resources
 
 - [references/problem-abstraction.md](references/problem-abstraction.md)：把表象问题压缩成问题本质的剥离框架
-- [references/professional-role-anchor.md](references/professional-role-anchor.md)：先判断“谁是专业的”，再从专业角色职能中提炼方法论
-- [references/methodology-map.md](references/methodology-map.md)：常见问题类型与对应的专业流程原型
-- [references/philosophical-elevation.md](references/philosophical-elevation.md)：把问题从机制层继续上穿到系统能力、深层张力与上位方法论的镜头
+- [references/professional-role-anchor.md](references/professional-role-anchor.md)：先判断“谁是专业的”，再从职责和验收门里生成主专业角色
+- [references/control-surfaces.md](references/control-surfaces.md)：从通用控制面生成方法论主线，不再依赖场景地图
+- [references/philosophical-elevation.md](references/philosophical-elevation.md)：把问题从机制层继续上穿到系统能力层，再翻译回方法论层
+- [references/self-bootstrap-rubric.md](references/self-bootstrap-rubric.md)：当问题对象就是当前方法系统本身时，强制切换到系统 owner、五层诊断和跨样本回归 gate
 
 ## Validation
 

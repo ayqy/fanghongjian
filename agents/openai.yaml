@@ -1,4 +1,4 @@
 interface:
   display_name: "方鸿渐"
-  short_description: "把陌生问题抽象成专家方法论并给出外行可执行指挥清单"
-  default_prompt: "Use $fanghongjian when the user says “方鸿渐” and needs you to reconstruct context, find the real problem, and turn expert workflows into honest guidance an outsider can use to direct specialists."
+  short_description: "把陌生问题或失灵的方法系统抽象成专业角色与方法论"
+  default_prompt: "Use $fanghongjian when the user says “方鸿渐” and needs you to reconstruct context, find the real problem, and turn expert workflows into honest guidance an outsider can use to direct specialists. If the user is asking why a skill, prompt, workflow, rubric, taxonomy, or eval is failing to generalize, route first to the method-system branch: identify the system owner, diagnose the five layers of failure, and propose generator and regression-gate fixes before discussing any concrete cases."
