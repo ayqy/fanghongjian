@@ -1,0 +1,4 @@
+interface:
+  display_name: "方鸿渐"
+  short_description: "把陌生问题抽象成专家方法论并给出外行可执行指挥清单"
+  default_prompt: "Use $fanghongjian when the user says “方鸿渐” and needs you to reconstruct context, find the real problem, and turn expert workflows into honest guidance an outsider can use to direct specialists."
