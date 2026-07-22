@@ -1,147 +1,128 @@
-# 通用控制面与方法生成法
+# Generic Control Surfaces for Method Generation
 
-## 1. 用途
+## 1. Purpose
 
-不要再问“这像哪个旧案例”；要问“这次到底哪几个控制面没立住”。
+Do not ask which old case this resembles. Ask which control surfaces are unstable and must be governed first.
 
-这个文件的目标，是把方法论从场景白名单改成通用生成框架。
+This file exists to generate methodology from first principles instead of from scenario maps or example whitelists.
 
-## 2. 先判主失稳形态
+## 2. Identify the dominant instability pattern
 
-先判断当前问题最主要是下面哪一种“失稳”，再补 1 到 2 个次失稳形态：
+Choose the main instability first, then add at most one or two secondary patterns.
 
-### 事实失稳
+### Fact instability
 
-- 大家说的都像有道理，但没人能稳定回答“什么算真”
+- Many explanations sound plausible, but nobody can answer what counts as true with stability.
 
-### 责任失稳
+### Ownership instability
 
-- 没有单一 owner，或者 owner 不握关键 gate
+- There is no single owner, or the named owner does not control the key gate.
 
-### 顺序失稳
+### Sequencing instability
 
-- 该先后分明的阶段被混在一起，导致总在原地打转
+- Stages that must be separated are mixed together, so the work keeps looping in place.
 
-### 质量失稳
+### Quality instability
 
-- 输出好坏全靠感觉，没有稳定 rubric、验收门或回归门
+- Output quality is judged by taste, politics, or familiarity instead of a stable quality bar.
+- This includes workflows or evaluation sets that look good on known samples but collapse under new phrasing, adjacent domains, or changed constraints.
 
-### 安全失稳
+### Safety instability
 
-- 不可逆风险太大，但系统没有先把边界和升级条件立住
+- The irreversible downside is too large, but the system has not frozen boundaries or escalation conditions first.
 
-### 归属失稳
+### Attribution instability
 
-- 事实、判断、责任或作者性说不清属于谁
+- Facts, judgment, responsibility, or authorship are not reliably attributable.
 
-### 适应失稳
+### Adaptation instability
 
-- 旧方法在新约束下已经失效，但系统还在沿用旧路径
+- The old path no longer fits the new constraints, but the system keeps replaying it anyway.
 
-### 系统设计失稳
+Multiple patterns can coexist, but do not select all of them. A methodology is only useful if it makes one primary instability governable first.
 
-- 当前 skill / prompt / workflow / rubric 本身不会泛化，只会靠补案例活着
+## 3. Choose the control surfaces that must stabilize first
 
-同一问题可能同时有多个失稳形态，但默认只选 1 个主失稳，再补少量次失稳，不要全选。
+### Authority surface
 
-## 3. 再选需要先立住的控制面
+- Who is allowed to define truth, quality, safety, legality, or final acceptance?
+- Without this surface, coordination collapses back into argument.
 
-### 权威面
+### Evidence surface
 
-- 谁有权定义真相、质量、安全或最终通过
-- 没有这层，任何协调都会重新回到争论
+- Which version of facts, which timestamp, which source, or which definition is authoritative?
+- Without this surface, the system loses truth before interpretation even starts.
 
-### 证据面
+### Boundary surface
 
-- 哪一版事实、哪个时点、哪种来源、哪种口径是权威
-- 没有这层，系统会在“解释”之前就先丢掉真相
+- Which constraints cannot be crossed?
+- Which actions are forbidden?
+- Which risks cannot be gambled on?
 
-### 边界面
+### Layering surface
 
-- 哪些约束不能越，哪些动作不能做，哪些风险不能赌
-- 没有这层，推进速度越快，越可能把问题做大
+- Which things must be separated first?
+- Typical separations:
+  - facts vs. explanations
+  - root cause vs. amplifier
+  - normal path vs. exception path
+  - runtime example vs. governing rule
 
-### 分层面
+### Sequencing surface
 
-- 哪些东西必须先拆开，例如：
-  - 事实 vs 解释
-  - 根因 vs 放大器
-  - 正常路径 vs 例外路径
-  - 系统问题 vs 个案问题
-- 没有这层，所有动作都会混成一团
+- What must be frozen first?
+- What must stay downstream?
+- What condition must be met before the next move is allowed?
+- If the work involves multi-party adoption, politics, or scaling, shrink it to the smallest viable unit or pilot before trying to push the whole system.
 
-### 顺序面
+### Acceptance surface
 
-- 什么必须先冻结，什么必须后置，什么条件满足后才能继续
-- 没有这层，工作看起来很多，实则没有主路径
-- 如果问题牵涉多人博弈、组织采纳或大范围推广，优先先缩成 `最小可推进单元` 或试点，再决定是否放大；不要一上来就试图整体推动
+- What proves the work is ready to advance, release, scale, or reopen?
 
-### 验收面
+### Escalation / rollback surface
 
-- 什么条件满足才算能推进、能交付、能扩大
-- 没有这层，结果只能靠感觉争论
+- Under what condition must the path stop, escalate, narrow, or reverse?
 
-### 升级 / 回退面
+### Feedback / regression surface
 
-- 什么情况下必须停、升、降、回滚
-- 没有这层，系统只会硬扛或空转
+- What proves the new path is more stable than the old one?
+- Good proof survives paraphrase, nearby domains, changed constraints, and repeated use, not just one familiar example.
 
-### 反馈 / 回归面
+## 4. Generate the methodology thread from the chosen surfaces
 
-- 怎样证明新动作比旧动作更稳，而不是只修好眼前一次
-- 没有这层，系统永远不知道自己是真的变好还是只是运气好
+The default order is:
 
-## 4. 用控制面生成方法论主线
+1. freeze authority, evidence, and hard boundaries
+2. separate layers that are currently mixed together
+3. sequence the work and handoffs deliberately
+4. close with acceptance, escalation, rollback, and regression proof
 
-默认按下面顺序写“方法论主线”：
+Prefer these sentence forms:
 
-1. 先冻结 `权威 / 证据 / 边界`
-2. 再拆开被混在一起的层
-3. 再按明确顺序推进工作和交接
-4. 最后用 `验收 / 升级 / 回归` 收口
+- `First stabilize X, then debate Y.`
+- `First separate A from B, then move through C in order.`
+- `First prove D, then decide whether to expand, rollback, or escalate.`
+- `First run the smallest viable unit, then decide whether the pattern deserves scale.`
 
-优先使用下面三类句式：
+If a supposed methodology has no gate, no order, and no acceptance condition, it is still just advice.
 
-- `先把 X 定住，再谈 Y。`
-- `先把 A 和 B 拆开，再按 C 的顺序推进。`
-- `先用 D 验收，再决定扩大、回退或升级。`
-- `先拿最小可推进单元试点，再决定是否复制到更大范围。`
+## 5. Translate methodology into workflow
 
-如果一条“方法论”里没有门、顺序或验收条件，说明它还只是建议，不算方法论。
+Once the methodology exists, it should yield at least five things:
 
-## 5. 再把方法论翻成工作流
+1. a diagnostic path
+2. a work sequence
+3. the control point guarded at each step
+4. an acceptance test
+5. an escalation or rollback condition
 
-方法论生成后，至少落出下面五样东西：
+The outsider should receive a set of handles they can repeat, push on, and verify, not a pile of concepts.
 
-1. 诊断路径：内行会先看什么
-2. 工作顺序：先做什么，再做什么
-3. 控制点：每一步真正守住什么
-4. 验收方式：怎样证明过关
-5. 升级 / 回退条件：什么情况下必须改路径
+## 6. Anti-patterns
 
-外行最终拿到的，不该是一堆概念，而该是一套可以直接转述、催办、验收的抓手。
-
-## 6. 如果问题对象就是当前方法系统
-
-当分析对象是当前 skill / prompt / workflow 本身时，至少拆开下面五层：
-
-1. 问题抽象层
-2. 角色生成层
-3. 控制面选择层
-4. 场景翻译层
-5. 评测 / 回归层
-
-默认原则：
-
-- 先修生成逻辑，再修案例表述
-- 先修回归门，再谈两个失败 case 修没修好
-- 例子只作为回归输入，不再承担主逻辑
-
-## 7. 反模式
-
-- 一上来就按旧案例对号入座
-- 给出 `多协调 / 统一口径 / 持续优化` 这类没有 owner 和 gate 的空话
-- 把证据、解释、动作和例外混成一层
-- 只讲哲学，不讲工作抓法
-- 只讲步骤，不讲为什么这个顺序成立
-- 看到两例修好了，就误判系统已经泛化
+- slotting the problem into an old case before understanding the governed object
+- giving `coordinate more`, `align the team`, or `keep optimizing` without naming the owner or the gate
+- mixing evidence, explanation, action, and exceptions into one layer
+- staying in philosophy without producing operating handles
+- giving steps without explaining why the order is correct
+- declaring a system fixed because two familiar examples improved

@@ -1,162 +1,138 @@
-# 哲学升维镜头
+# Philosophical Elevation Lenses
 
-## 用法
+## How to use this file
 
-当你已经找到“机制缺失”“流程失灵”“治理没闭环”这一层，还要再问一句：
+Use this file only when the first abstraction still feels shallow.
 
-- 这到底是哪一种系统在失去什么根能力
-- 真正冲突的是哪两类目标、价值或约束
-- 这类问题跨场景应该用什么上位方法论治理
+Ask three questions:
 
-如果这三件事没有回答，说明升维还不够。
+- What system capability is actually failing?
+- What deeper tension between values, goals, or constraints governs the problem?
+- What higher-order methodology would travel across adjacent domains?
 
-但要注意：这个文件主要用于内部校准，防止答案停在表层。不要把它当成新的场景地图或流程白名单。最终给用户看的结果，默认不直接停在哲学术语层，而要翻译回简单、可执行、贴近当前问题的方法论层。
+Then come back down. This file is an internal calibration layer, not a final speaking style. The user-facing answer should land at the methodology layer, not at the terminology layer.
 
-## 一、先选系统镜头
+## 1. Choose the system lens
 
-### 1. 可判定性镜头
+### 1. Judgability
 
-- 适用：数据争议、口径不一致、真假难分、指标扯皮、事实说不清
-- 深层问题：系统失去了稳定判定“什么算真”的能力
-- 常见张力：速度 vs 准确；实时性 vs 一致性；局部视角 vs 全局口径
-- 典型一句话：
-  - `更深一层看，这不是谁算错了，而是系统在速度与一致性的张力下失去了可判定性。`
+- Use when: metrics are disputed, definitions drift, truth cannot be agreed, evidence is noisy
+- Deeper failure: the system has lost a stable way to decide what counts as true
+- Typical tension: speed vs. accuracy, real-time visibility vs. consistency, local view vs. global truth
+- Example internal sentence:
+  - `At a deeper level, the system has lost judgability under the tension between speed and consistency.`
 
-### 2. 可协调性镜头
+### 2. Coordinability
 
-- 适用：多部门扯皮、角色推诿、进度失控、主路径混乱、没人能拍板
-- 深层问题：系统失去了让多角色围绕同一目标协同推进的能力
-- 常见张力：部门局部最优 vs 整体交付；自治 vs 统一；灵活性 vs 秩序
-- 典型一句话：
-  - `更深一层看，这不是沟通不够，而是系统在局部最优与整体一致的张力下失去了可协调性。`
+- Use when: many roles pull in different directions, sequencing breaks, nobody can truly decide
+- Deeper failure: the system can no longer align multiple actors around one governed path
+- Typical tension: local autonomy vs. whole-system delivery, flexibility vs. order
+- Example internal sentence:
+  - `At a deeper level, the system has lost coordinability under the tension between local optimization and whole-system delivery.`
 
-### 3. 可正当化性镜头
+### 3. Legitimacy
 
-- 适用：公共事务、利益分配、群众反对、合规争议、程序争议
-- 深层问题：系统失去了让结果被相关方认可的能力
-- 常见张力：效率 vs 公平；利益分配 vs 程序合法；短期推动 vs 长期接受
-- 典型一句话：
-  - `更深一层看，这不是谁态度差，而是系统在效率与正当性的张力下失去了可正当化性。`
+- Use when: public acceptance, fairness, procedure, or compliance drives the result
+- Deeper failure: the system can no longer make the result defensible to the affected parties
+- Typical tension: efficiency vs. fairness, short-term push vs. long-term acceptance
+- Example internal sentence:
+  - `At a deeper level, the system has lost legitimacy under the tension between speed and defensibility.`
 
-### 4. 可控性镜头
+### 4. Controllability
 
-- 适用：自动化链路、复杂流程、系统振荡、质量反复、救火后复发
-- 深层问题：系统失去了根据反馈稳定纠偏的能力
-- 常见张力：规模化 vs 稳定性；自由生成 vs 受限控制；速度 vs 反馈成本
-- 典型一句话：
-  - `更深一层看，这不是某一步没做好，而是系统在规模与稳定性的张力下失去了可控性。`
+- Use when: automation oscillates, quality drifts, fixes do not hold, scale amplifies failure
+- Deeper failure: the system can no longer stabilize itself through feedback
+- Typical tension: scale vs. stability, freedom vs. control, speed vs. feedback cost
+- Example internal sentence:
+  - `At a deeper level, the system has lost controllability under the tension between scale and stability.`
 
-### 5. 可归属性镜头
+### 5. Attributability
 
-- 适用：内容生成、作者性、责任归属、判断来源不清、真假主体混杂
-- 深层问题：系统失去了让内容、责任或判断可被可靠归属的能力
-- 常见张力：规模复制 vs 真实主体；效率 vs 作者性；自动生成 vs 责任承担
-- 典型一句话：
-  - `更深一层看，这不是文风问题，而是系统在规模复制与真实主体的张力下失去了可归属性。`
+- Use when: responsibility, authorship, or provenance is blurred
+- Deeper failure: the system can no longer say whose facts, judgment, or accountability are being expressed
+- Typical tension: reuse vs. authentic ownership, automation vs. responsibility
+- Example internal sentence:
+  - `At a deeper level, the system has lost attributability under the tension between scale and authentic ownership.`
 
-### 6. 可适应性镜头
+### 6. Adaptability
 
-- 适用：环境变化、规则变化、需求变动、组织迁移、旧方法失效
-- 深层问题：系统失去了在约束变化后重建有效策略的能力
-- 常见张力：旧经验 vs 新约束；稳定性 vs 变革；路径依赖 vs 重构成本
-- 典型一句话：
-  - `更深一层看，这不是执行跟不上，而是系统在稳定性与变革的张力下失去了可适应性。`
+- Use when: old methods no longer fit new constraints
+- Deeper failure: the system cannot rebuild a stable strategy after the environment changes
+- Typical tension: path dependence vs. redesign cost, stability vs. change
+- Example internal sentence:
+  - `At a deeper level, the system has lost adaptability under the tension between stability and new constraints.`
 
-## 二、再选上位方法论
+## 2. Map the lens back to higher-order methodology
 
-### 1. 先让现实可被看见，再谈优化
+### Judgability -> Make truth production explicit before optimization
 
-- 适用：可判定性问题
-- 方法论骨架：
-  1. 定义对象
-  2. 定义口径
-  3. 定义采样时点
-  4. 定义证据等级
-  5. 定义仲裁机制
-- 一句话：
-  - `先把真相生产机制做出来，再谈怎么把结果做漂亮。`
+- define the object
+- define the metric or definition
+- define the observation point
+- define evidence grades
+- define an arbitration rule
 
-### 2. 先让判断权集中，再谈协同效率
+### Coordinability -> Concentrate decision rights before chasing speed
 
-- 适用：可协调性问题
-- 方法论骨架：
-  1. 统一目标
-  2. 指定主路径
-  3. 集中判断权
-  4. 明确升级条件
-  5. 建立节奏与反馈
-- 一句话：
-  - `先让系统知道谁说了算，再让系统追求谁跑得快。`
+- define the shared outcome
+- define the main path
+- define who decides
+- define escalation rules
+- define review rhythm and feedback
 
-### 3. 先让分配原则可辩护，再谈推动速度
+### Legitimacy -> Make the rule defensible before forcing execution
 
-- 适用：可正当化性问题
-- 方法论骨架：
-  1. 讲清原则
-  2. 讲清程序
-  3. 讲清补偿
-  4. 讲清异议处理
-  5. 讲清边界条件
-- 一句话：
-  - `先让结果可被接受，再让结果可被执行。`
+- define the principle
+- define the procedure
+- define compensation or burden sharing
+- define objection handling
+- define boundary conditions
 
-### 4. 先让反馈闭环稳定，再谈规模化产出
+### Controllability -> Stabilize the feedback loop before scaling
 
-- 适用：可控性问题
-- 方法论骨架：
-  1. 定义控制变量
-  2. 限制自由度
-  3. 建立质量 gate
-  4. 设计回退条件
-  5. 用反馈驱动迭代
-- 一句话：
-  - `先把系统调稳，再把系统放大。`
+- define the control variables
+- limit freedom where needed
+- create quality gates
+- define rollback conditions
+- drive iteration from feedback
 
-### 5. 先锚定作者性和责任，再谈生成效率
+### Attributability -> Anchor source and responsibility before chasing efficiency
 
-- 适用：可归属性问题
-- 方法论骨架：
-  1. 定义哪些内容必须可追溯
-  2. 定义事实与判断的来源
-  3. 定义允许模拟什么，不允许冒充什么
-  4. 定义证据挂接方式
-  5. 定义责任归属
-- 一句话：
-  - `先让内容知道它是谁在说话，再让它去追求像谁说话。`
+- define what must remain traceable
+- define the source of facts and the source of judgment
+- define what can be simulated and what cannot be impersonated
+- define evidence attachment
+- define accountability
 
-### 6. 先重建适应机制，再谈恢复旧表现
+### Adaptability -> Rebuild the adaptation mechanism before restoring performance
 
-- 适用：可适应性问题
-- 方法论骨架：
-  1. 承认旧路径失效
-  2. 明确新约束
-  3. 找到可复用的稳态能力
-  4. 设计试错边界
-  5. 快速验证新均衡
-- 一句话：
-  - `先学会在新世界里活下来，再谈把旧世界里的成绩拿回来。`
+- admit the old path no longer fits
+- define the new constraints
+- identify the reusable stable capability
+- define the safe experimentation boundary
+- prove a new equilibrium quickly
 
-## 二A. 把哲学镜头译回方法论层
+## 3. Translate the lens back into plain-language methodology
 
-选完镜头后，默认按下面方式往下翻一层，不要直接把术语端给用户：
+Do not hand the lens directly to the user. Translate it:
 
-- `可判定性` -> `先统一口径、时点和仲裁规则，再讨论谁算对。`
-- `可协调性` -> `先定主路径、拍板人和升级条件，再谈多方协作。`
-- `可正当化性` -> `先把规则、补偿和异议处理讲清，再推进执行。`
-- `可控性` -> `先锁变量、设质量 gate 和回退条件，再扩大规模。`
-- `可归属性` -> `先钉住事实来源、判断来源和责任边界，再追求风格或效率。`
-- `可适应性` -> `先承认旧方法失效并重建新约束下的稳态，再谈恢复旧成绩。`
+- `Judgability` -> `First unify the definition, the timestamp, and the arbitration rule, then debate who is right.`
+- `Coordinability` -> `First define the main path, the decision owner, and the escalation gate, then coordinate the participants.`
+- `Legitimacy` -> `First make the rule, burden sharing, and objection handling defensible, then push execution.`
+- `Controllability` -> `First lock the variables, the quality gates, and the rollback rule, then scale the system.`
+- `Attributability` -> `First pin down sources and accountability, then optimize speed or style.`
+- `Adaptability` -> `First admit the old method no longer fits and rebuild a stable path under the new constraints, then chase old performance again.`
 
-自检标准：
+Self-check:
 
-1. 不懂哲学术语的人，能不能直接看懂这条方法论
-2. 这条方法论能不能自然带出当前问题的工作顺序和验收标准
-3. 如果删掉术语，方法论是否仍然成立
+1. Would a non-philosopher still understand the methodology?
+2. Does the methodology naturally produce a work sequence and an acceptance test?
+3. If the lens label disappears, does the methodology still stand?
 
-## 三、最低输出要求
+## 4. Minimum acceptable use
 
-至少给出下面三件事：
+At minimum, this file should help you do three things:
 
-1. 内部判断这件事更深一层是哪种系统能力在失效
-2. 对外把它翻成一句白话的方法论主线
-3. 说明这条方法论在当前个案里意味着先抓什么、怎么验收
+1. identify the deeper capability that is failing
+2. restate that failure as a plain-language methodology
+3. explain what that methodology means for the current case's first move and acceptance gate

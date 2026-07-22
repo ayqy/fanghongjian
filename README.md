@@ -18,7 +18,7 @@ Most people do not fail on hard problems because they are unintelligent. They fa
 
 `fanghongjian` is built for that gap.
 
-When the user explicitly invokes `方鸿渐`, the skill reconstructs context, identifies the main professional role for the problem, extracts that role's working logic, and translates it into concise methodology an outsider can actually use.
+When the user explicitly invokes `Fang Hongjian` or `方鸿渐`, the skill reconstructs context, identifies the main professional role for the problem, extracts that role's working logic, and translates it into concise methodology an outsider can actually use.
 
 ## What the skill does
 
@@ -122,16 +122,19 @@ This structure is deliberate. It prevents the skill from drifting into vague ins
 
 ## Representative use cases
 
-The current skill was iteratively refined against several types of problems:
+The repository now carries a 20-case evaluation suite built from real operational problem shapes rather than one narrow domain:
 
-- software delivery and analytics disputes
-- cross-functional governance and execution-drift problems
-- public coordination problems under procedural and stakeholder constraints
-- generated-output optimization under tight model, budget, and automation constraints
+- analytics and measurement disputes
+- execution governance and public-affairs coordination
+- AI-application quality and automation design
+- clinical nursing and childcare routine design
+- manufacturing, logistics, procurement, finance, and legal-commercial controls
+- support, security, HR, marketing measurement, construction, food safety, and research-compliance operations
+- one dedicated content-risk guardrail case and one method-system generalization case
 
 The common pattern is not domain similarity. It is decision difficulty under unfamiliarity: the user needs to understand how the real professionals would define the problem, drive the work, and judge whether it is on track.
 
-Those scenarios now live as regression targets. They are no longer the mechanism the skill uses to decide what to do.
+Those scenarios now live as evaluation and regression targets. They are no longer the mechanism the skill uses to decide what to do.
 
 ## Repository layout
 
@@ -146,8 +149,7 @@ Those scenarios now live as regression targets. They are no longer the mechanism
 │   ├── control-surfaces.md
 │   ├── philosophical-elevation.md
 │   ├── problem-abstraction.md
-│   ├── professional-role-anchor.md
-│   └── self-bootstrap-rubric.md
+│   └── professional-role-anchor.md
 └── README.md
 ```
 
@@ -159,13 +161,15 @@ Validate the skill with:
 python3 /Users/pocket/.codex/skills/.system/skill-creator/scripts/quick_validate.py /Users/pocket/Documents/project/fanghongjian
 ```
 
+For behavioral regression, use [`evals/confirmed-cases.json`](./evals/confirmed-cases.json) as the canonical 20-case suite and forward-test representative prompts with fresh agents, following the `skill-creator` workflow.
+
 ## Usage
 
-Use this skill when the user explicitly invokes `方鸿渐`, for example:
+Use this skill when the user explicitly invokes `Fang Hongjian` or `方鸿渐`, for example:
 
-- `方鸿渐，你怎么看？`
-- `方鸿渐，现在怎么办？`
-- `方鸿渐，你打算怎么做？`
+- `Fang Hongjian, what is the real problem here?`
+- `Fang Hongjian, what is the professional way to run this?`
+- `Fang Hongjian, how would the real owner sequence and validate this work?`
 
 It is most useful when the real job is not "answer the question quickly", but:
 

@@ -1,106 +1,106 @@
-# 专业角色生成法
+# Professional Owner Generation
 
-## 1. 为什么先找角色
+## 1. Why the owner comes before the advice
 
-同一个问题，换一个 owner，看法和方法论都会完全不同。
+The same symptom produces completely different methodology under a different owner.
 
-所以不要直接从“症状像什么”跳到“给几个办法”；要先回答：
+So do not jump from `this looks like X` to `here are some tips`. First answer:
 
-- 谁对结果负责
-- 谁定义什么叫合格、安全或可发布
-- 谁守着最不能出错的不可逆风险
-- 谁握着最关键的验收门、升级门或回退门
+- Who owns outcome failure?
+- Who defines what counts as good, safe, legal, or releasable?
+- Who protects the most irreversible risk?
+- Who controls the decisive acceptance, escalation, or rollback gate?
 
-如果这四件事里有三件答不上来，说明还没有真正找到主专业角色。
+If you cannot answer at least three of those four, you have not found the real professional owner yet.
 
-## 2. 先找真正的 owner
+## 2. Find the real owner
 
-按下面顺序判断：
+Check in this order:
 
-1. 结果一旦失败，谁最应该对结果负责
-2. 谁在定义“什么叫做好”
-3. 谁在守住最不能错的风险
-4. 谁拥有关键产物、关键决策或关键验收门
+1. If the work fails, who should truly own the result?
+2. Who defines what `good enough` means?
+3. Who guards the risk that cannot be allowed to fail?
+4. Who owns the key artifact, decision, or gate?
 
-满足越多，越接近主专业角色。
+The more boxes a role satisfies, the closer it is to the primary owner.
 
-如果涉及多人协作：
+If the problem involves multiple parties:
 
-- 只选 1 个主专业角色
-- 其他角色标成协作方、约束方或依赖方
+- choose one primary owner
+- label the others as collaborators, constraints, or dependencies
 
-主专业角色不一定是职级最高的人，而是那个真正守住结果和门的人。
+The primary owner is not always the most senior person. It is the person who truly holds the result and the gate.
 
-## 3. 用职能生成角色名
+## 3. Generate the role name from function
 
-先有职能，再决定名字。
+Start with the function, then decide the title.
 
-优先使用下面几种命名方式：
+Useful naming patterns:
 
-- `[核心对象] + [质量/安全/交付/评测] + 负责人`
-- `[关键产物/验收门] + 负责人`
-- `[系统/流程] + [架构/治理/评测] + 负责人`
+- `[governed object] + [quality / safety / delivery / evaluation] + owner`
+- `[key artifact or gate] + owner`
+- `[system or process] + [architecture / governance / evaluation] + owner`
 
-如果当前领域没有现成头衔，也不要退回 `PM / 协调人 / 项目负责人`。先写成职责型角色：
+If the field has no stable title, do not retreat to `PM`, `coordinator`, or `project lead`. Use a functional role first:
 
-- `对结果负责的人`
-- `定义合格线的人`
-- `守住不可逆风险的人`
-- `拥有关键交付门的人`
+- the person who owns the result
+- the person who defines the bar
+- the person who guards the irreversible risk
+- the person who controls the release gate
 
-等职能写清之后，再决定是否翻译成更贴近行业母语的角色名。
+Once the function is clear, translate it into local industry language if needed.
 
-## 4. 两类最容易误选的情况
+## 4. Two situations where role selection often fails
 
-### 生成内容 / prompt / workflow 优化
+### Generated systems and evaluative systems
 
-如果当前问题是在调一个生成系统，不要先选“写得顺的人”，而要优先选那个守住下面四件事的人：
+When the governed object is a content pipeline, a prompt system, a workflow, a rubric, or an evaluation set, do not choose the person who merely makes the output sound better.
 
-- 任务定义
-- 评测样本
-- 变量控制
-- 回归门
+Prefer the owner who controls:
 
-谁守住这四件事，谁才更接近主专业角色。
+- task framing
+- evidence quality
+- experimental variables
+- release criteria
+- regression proof
 
-优先把角色名往 `评测 / 调优 / 系统质量` 方向命名，而不是只写成宽泛的 `内容负责人`。如果一个角色名听起来不负责试验设计、错误分类、阈值判定和版本放行，通常还没有真正锚到生成系统 owner。
+If the role name does not sound responsible for test design, failure classification, threshold decisions, and promotion gates, it is probably still the wrong owner.
 
-### 当前问题对象就是方法系统本身
+### Multi-party coordination under public, legal, or safety constraints
 
-如果用户指出的是 `skill / prompt / taxonomy / workflow / rubric` 自身不会泛化，不要把角色错锚到某个失败案例里的一线角色。
+Do not choose the loudest coordinator by default.
 
-这时应优先找那个守住下面三件事的人：
+Prefer the owner who can:
 
-- 抽象逻辑
-- 选择规则
-- 评测与回归门
+- define the valid procedure
+- decide what counts as acceptable risk
+- distinguish hard blockers from negotiable objections
+- move the work across the next lawful or safe gate
 
-换句话说，要找系统 owner，而不是案例 owner。
+## 5. Pressure-test the role
 
-## 5. 对角色做压力测试
+After choosing the role, ask five questions:
 
-角色选出来后，至少反问自己五件事：
+1. If this role disappeared, which gate would collapse first?
+2. Can this role define what counts as passing, who can decide, and who can overrule?
+3. Do this role's first three questions naturally fall onto truth, quality, safety, sequencing, or regression?
+4. If you replace this role with `PM`, `coordinator`, or `project lead`, does the methodology immediately lose its professional grip?
+5. Does the role sound like it protects an outcome, or only like it relays messages?
 
-1. 如果这个角色消失，最先塌的是哪个门
-2. 这个角色能不能解释什么叫过关、谁能拍板、谁能推翻结论
-3. 这个角色的前三个问题，是否会自然落到真相、质量、安全、顺序或回归，而不是泛泛“协调一下”
-4. 如果把这个角色替换成 `PM / 协调人 / 项目负责人`，方法论是否立刻失去专业抓手
-5. 这个角色听起来像不像一个在守住结果的人，而不只是一个传话的人
+If the answer to question four is `yes`, the anchor is probably doing useful work.
 
-只要第 4 条答案是“会”，就说明这个角色锚点有效。
+## 6. Anti-patterns
 
-## 6. 常见误区
+- choosing by hierarchy instead of by gate
+- choosing a collaborator instead of the owner
+- borrowing a role label from an old case instead of generating it from the present responsibilities
+- naming the role without explaining what it protects
+- falling back to `PM`, `coordinator`, or `project lead` whenever the field feels unfamiliar
 
-- 按组织级别选角色，而不是按 gate 选角色
-- 选到了协作方，却没选到 owner
-- 借用旧案例里的角色名，而不是从当前责任和门里长角色
-- 只给角色标签，不解释他守住什么
-- 一遇到陌生领域就退回 `PM / 协调人 / 项目负责人`
+## 7. Success condition
 
-## 7. 成功标准
+Role generation is successful when the user can immediately understand:
 
-角色生成成功时，用户应该一眼看懂三件事：
-
-1. 这件事到底该按谁的工作抓法来做
-2. 这个角色守住的结果、风险或验收门是什么
-3. 后面的方法论为什么是从这个角色的职责里自然长出来的
+1. whose working logic this problem should be run by
+2. what result, risk, or gate that role protects
+3. why the later methodology naturally grows out of that role's responsibilities

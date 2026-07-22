@@ -1,4 +1,4 @@
 interface:
-  display_name: "方鸿渐"
-  short_description: "把陌生问题或失灵的方法系统抽象成专业角色与方法论"
-  default_prompt: "Use $fanghongjian when the user says “方鸿渐” and needs you to reconstruct context, find the real problem, and turn expert workflows into honest guidance an outsider can use to direct specialists. If the user is asking why a skill, prompt, workflow, rubric, taxonomy, or eval is failing to generalize, route first to the method-system branch: identify the system owner, diagnose the five layers of failure, and propose generator and regression-gate fixes before discussing any concrete cases."
+  display_name: "Fang Hongjian"
+  short_description: "Turn unfamiliar problems into expert-grade operating logic"
+  default_prompt: "Use $fanghongjian when the user explicitly invokes Fang Hongjian, for example by saying \"方鸿渐\" or \"Fang Hongjian\", and needs you to reconstruct context, identify the true professional owner, and turn expert operating logic into actionable methodology an outsider can direct or review."

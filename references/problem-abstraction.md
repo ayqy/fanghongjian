@@ -1,110 +1,93 @@
-# 问题本质抽象法
+# Problem Abstraction Framework
 
-## 1. 先复原现场
+## 1. Reconstruct the working situation
 
-按下面顺序补齐事实：
+Collect the minimum facts in this order:
 
-1. 交付物到底是什么
-2. 谁在承担成败
-3. 时间、预算、合规、组织边界是什么
-4. 当前出现了什么可观测症状
-5. 如果现在不处理，真正代价是什么
+1. What is the actual deliverable or protected outcome?
+2. Who carries outcome failure?
+3. What are the time, budget, legal, organizational, or safety constraints?
+4. What observable symptoms exist right now?
+5. What real cost appears if nothing changes?
 
-如果上面五项里有三项以上为空，先继续找上下文，不要急着下结论。
+If three or more of those slots are still blank, gather more context before drawing conclusions.
 
-## 2. 做七层剥离
+## 2. Peel the problem back in seven layers
 
-1. 表象症状
-   - 用户抱怨了什么
-   - 当前最痛的现象是什么
-2. 运行机制
-   - 这个症状由哪套流程、系统、角色或市场机制产生
-3. 主瓶颈
-   - 真正卡住结果的是信息、能力、资源、决策、协作，还是验证
-4. 硬约束
-   - 哪些条件不能改，哪些条件改动成本极高
-5. 真目标
-   - 用户表面想要的，和真正需要守住的，是否是同一件事
-6. 深层张力
-   - 真正冲突的是哪两类目标、价值或约束
-   - 这是速度和准确的冲突，还是局部最优和整体一致的冲突，还是效率和正当性的冲突
-7. 根能力
-   - 这个系统真正失去的能力是什么
-   - 是可判定性、可协调性、可正当化性、可控性、可适应性、可归属性，还是别的什么
-   - 如果不把这项能力补回来，表面修复为什么还会反复失效
+1. Visible symptom
+   - What is the user complaining about?
+   - What is the most painful observable effect?
+2. Operating mechanism
+   - What process, system, coordination pattern, or market mechanism produces that symptom?
+3. Main bottleneck
+   - What actually blocks the outcome: information, capability, resources, decisions, coordination, or verification?
+4. Hard constraints
+   - Which conditions cannot move, or can move only at extreme cost?
+5. Protected outcome
+   - What does the user say they want, and what must actually be protected?
+6. Deeper tension
+   - Which values, goals, or constraints are in conflict?
+   - Is this a speed versus accuracy problem, a local versus system-optimum problem, an efficiency versus legitimacy problem, or something else?
+7. Lost system capability
+   - What capability is the system failing to preserve?
+   - Is the failure about truth, coordination, legitimacy, controllability, adaptability, attribution, or another core capability?
+   - Why would the surface repair fail again if that capability stays broken?
 
-## 3. 写出一句本质判断
+## 3. Write a one-sentence core judgment
 
-优先使用下面任一模板：
+Prefer one of these patterns:
 
-- `本质不是 A，而是在 B 约束下，C 缺少 D 机制，导致 E 无法稳定发生。`
-- `这不是单点故障，而是 F 环节没有被验证闭环托住，所以 G 只能靠运气。`
-- `用户看到的是 H，真正的问题是 I 角色在 J 条件下无法做出 K 决策。`
+- `The real problem is not A itself. Under B constraints, C lacks D, so E cannot happen reliably.`
+- `This is not a one-off mistake. F has no stable verification loop, so G still depends on luck.`
+- `The visible complaint is H. The governing problem is that I cannot make K-quality decisions under J conditions.`
 
-如果一句话里没有约束、角色、机制、结果四个要素，说明抽象还不够。
+If the sentence has no constraint, no owner or system, no mechanism, and no consequence, the abstraction is still too shallow.
 
-## 4. 再写一句“更深一层”的判断
+## 4. Climb one layer higher, then come back down
 
-优先使用下面任一模板：
+Use the deeper layer only to avoid shallow reasoning, not to leave the user inside philosophy.
 
-- `更深一层看，这不是 A 的执行问题，而是系统在 B 与 C 的张力下失去了 D，所以所有表层动作都会反复失效。`
-- `这类问题真正争夺的不是 E 本身，而是谁拥有 F、谁能证明 G、谁能在 H 失真时纠偏。`
-- `表面上是 I 没做好，实质上是系统没有稳定维持 J，于是任何局部优化都会重新掉回旧轨道。`
+Helpful higher-order patterns:
 
-这里的 `D / J` 尽量落到根能力：
+- `At a deeper level, this is not an execution lapse. Under the tension between B and C, the system has lost D, so surface fixes keep collapsing.`
+- `What is really contested here is not E itself, but who defines F, who proves G, and who is allowed to correct H when it drifts.`
+- `What looks like I underperformance is actually the system failing to preserve J, so every local improvement falls back into the old pattern.`
 
-- 可判定性：系统是否还能分清“什么是真的”
-- 可协调性：系统是否还能让多角色按同一目标推进
-- 可正当化性：系统是否还能让结果被相关方接受
-- 可控性：系统是否还能根据反馈稳定纠偏
-- 可适应性：系统是否还能在约束变化后重建有效策略
-- 可归属性：系统是否还能让内容、判断或责任可被可靠归属
+Then translate the result back into methodology:
 
-如果你说不出“失去的是哪项根能力”，说明还没挖到足够深。
+- `So do not start by arguing about A. First define B, then move through C in order.`
+- `The first thing to stabilize is not D action. It is E rule, F main path, or G acceptance gate.`
+- `In practical terms: first H, then I, then use J to prove the work is good enough.`
 
-## 4A. 再把深层判断压回方法论层
+The external answer should stay:
 
-七层剥离是为了防止太浅，不是为了把答案停在哲学层。真正给用户看的，默认应压回“方法论层”。
+1. one layer above one-off tactics
+2. one layer below abstract philosophy
+3. concrete enough to generate a work sequence and an acceptance test
 
-优先使用下面任一模板：
+## 5. Use an evidence ladder
 
-- `所以这类问题不要先在 A 上争论，而要先把 B 定清，再按 C 的顺序推进。`
-- `这类问题真正要先抓的不是 D 动作，而是先建立 E 规则 / F 主路径 / G 验收门。`
-- `翻成可执行的话，就是先 H，再 I，最后用 J 验收；否则后面的优化都会重新失效。`
+Rank evidence in this order:
 
-对外结果至少满足三点：
+1. Local artifacts: code, documents, configs, logs, data, screenshots, historical outputs
+2. Task-thread evidence: the request, constraints, acceptance rules, failure feedback
+3. Official external materials: standards, policies, laws, product docs
+4. Secondary materials: reporting, forums, third-party analysis
+5. Common-sense inference: only as a last resort, always labeled as inference
 
-1. 比具体办法高一层：适用于一类问题，不只适用于这一步
-2. 比哲学镜头低一层：不要求用户理解根能力术语，也能直接照着推进
-3. 能直接带出后续工作流：用户看完知道该先抓什么、后抓什么、怎么判断过关
+For every important conclusion, ask:
 
-如果一句“更深一层”的话无法自然翻成上述模板，说明抽象层次已经过高。
+- Did I directly observe this, or am I explaining it?
+- If this judgment is wrong, will the whole methodology drift?
 
-## 5. 用证据阶梯约束判断
+## 6. Translate the abstraction for an outsider
 
-优先级从高到低：
+The outsider does not need expert depth, but they do need:
 
-1. 本地工件：代码、文档、配置、日志、数据、截图、历史输出
-2. 任务线程：需求、补充限制、验收标准、失败反馈
-3. 官方外部资料：官方文档、法规、标准、产品说明
-4. 二手资料：媒体、论坛、第三方文章
-5. 常识推断：只能作为最后补位，必须显式标注为推断
+1. the problem type
+2. the main professional owner and what that owner protects
+3. what must be defined first, what must be sequenced next, and how the work is accepted
+4. the real control points in the current case
+5. the usual evasive language that hides the governing problem
 
-每条关键结论都问自己两件事：
-
-- 我是直接看到了，还是只是在解释它
-- 如果这条判断错了，后续方案会不会整体跑偏
-
-## 6. 把抽象结果翻译给外行
-
-外行不需要变成专家，但必须拿到下面四样东西：
-
-1. 这件事属于什么问题类型
-2. 在这件事上谁是主专业角色，他的职责是什么
-3. 这类问题应该先定什么、再推进什么、最后如何验收
-4. 这次在当前场景里最该抓的工作顺序和控制点
-5. 哪些说法通常是在回避核心问题
-
-如果更深一层的镜头确实有帮助，也应该压成一句白话方法论，而不是直接塞一串术语给用户。
-
-如果输出里只有建议，没有“问题属于哪类”“谁是专业角色”“方法论主线”“如何验收”和“如何识别忽悠”，就不算完成。
+If the answer contains only suggestions and no problem type, owner, methodology thread, acceptance gate, or way to detect hand-waving, the abstraction is not finished.
